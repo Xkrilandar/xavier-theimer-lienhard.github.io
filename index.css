@@ -248,3 +248,10 @@ body {
 		font-size: 20px;
 	}
 }
+
+#profile-photo {
+    width: 100px; /* Set the size of the profile photo */
+    height: 100px; /* Ensure it is square */
+    border-radius: 50%; /* Make it a circle */
+    object-fit: cover; /* Ensure the image fits within the circle */
+}
