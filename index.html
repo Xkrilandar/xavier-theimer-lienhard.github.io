@@ -2,70 +2,99 @@
 <html lang="en-US">
 
 <head>
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <!-- <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> -->
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"> -->
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- <link rel="shortcut icon" href="images/favicon/favicon.ico" type="image/x-icon"> -->
+    <!-- <link rel="shortcut icon" href="images/favicon/favicon.ico" type="image/x-icon"> -->
 
-  <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png">
-  <link rel="manifest" href="images/favicon/site.webmanifest">
-
-
-  <!-- Funny font-->
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&display=swap"
-    rel="stylesheet">
-
-  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon/favicon-16x16.png">
+    <link rel="manifest" href="images/favicon/site.webmanifest">
 
 
-  <style>
-    .funny-cursive {
-      font-family: "Lobster Two", sans-serif;
-      font-weight: 700;
-      font-style: normal;
-    }
-  </style>
+    <!-- Funny font-->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lobster+Two:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+        rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
 
 
-  <!-- Bootstrap CSS -->
+    <style>
+        .funny-cursive {
+            font-family: "Lobster Two", sans-serif;
+            font-weight: 700;
+            font-style: normal;
+        }
+        .diamond {
+            width: 250px;
+            height: 250px;
+            clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+            overflow: hidden;
+            display: inline-block;
+        }
+
+        .diamond img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        /* Keyframes for infinite rotation */
+        @keyframes infiniteRotate {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Rotate indefinitely on hover */
+        .diamond:hover {
+            animation: infiniteRotate 0.5s linear infinite;
+        }
+    </style>
+
+
+    <!-- Bootstrap CSS -->
 
 
 
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-  <link rel="stylesheet" type="text/css" href="stylesheet.css">
+    <link rel="stylesheet" type="text/css" href="stylesheet.css">
 
-  <link rel="stylesheet" type="text/css" href="button.css">
+    <link rel="stylesheet" type="text/css" href="button.css">
 
-  <link rel="stylesheet" type="text/css" href="fontawesome.all.min.css">
+    <link rel="stylesheet" type="text/css" href="fontawesome.all.min.css">
 
-  <link rel="stylesheet" type="text/css" href="highlight.css">
-
-
+    <link rel="stylesheet" type="text/css" href="highlight.css">
 
 
 
 
-  <link href="https://fonts.googleapis.com/css?family=Lora|Roboto:500" rel="stylesheet">
-  <link href="styles.css" rel="stylesheet">
 
 
-  <script src="button.js"></script>
-  <script src="highlight.js"></script>
-  <script src="url.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Lora|Roboto:500" rel="stylesheet">
+    <link href="styles.css" rel="stylesheet">
+
+
+    <script src="button.js"></script>
+    <script src="highlight.js"></script>
+    <script src="url.js"></script>
 
 
 
-  <title style="text-align: center;">Harold Benoit</title>
+    <title style="text-align: center;">Xavier Theimer-Lienhard</title>
 
 
 
@@ -73,308 +102,267 @@
 </head>
 
 <body>
-  <div class="container mt-3">
-    <div class="row">
-      <div id="About Me" class="col-8">
-        <h1>Harold Benoit</h1>
-        <div style="top: -5px; position: relative; padding-bottom: 0px;">
-          <a style="font-size: medium;" href="https://github.com/HaroldBenoit">Github</a><a style="font-size: medium;">
-            /
-            <a style="font-size: medium;" href="https://x.com/harold_matmul">X</a><a style="font-size: medium;">
-              /
-          </a><a style="font-size: medium;" href="https://www.linkedin.com/in/haroldbenoit/">Linkedin</a><a
-            style="font-size: medium;"> / </a><a style="font-size: medium;" href="data/CV/CV_Harold_Benoit.pdf">CV</a><a
-            style="font-size: medium;"> / </a>
-          <a style="font-size: medium;" href="https://scholar.google.com/citations?user=gxmWrE8AAAAJ&hl=en">G-Scholar</a><a style="font-size: medium;">
-            /
-          </a>
-          <a style="font-size: medium;">Email: (my first name)_(my last name)@hotmail.ch</a>
+    <div class="container mt-3">
+        <div class="row">
+            <div id="About Me" class="col-8">
+                <h1>Xavier Theimer-Lienhard</h1>
+                <div style="top: -5px; position: relative; padding-bottom: 0px;">
+                    <a style="font-size: medium;" href="https://github.com/Xkrilandar">Github</a><a
+                        style="font-size: medium;"> /
+                    </a><a style="font-size: medium;"
+                        href="https://www.linkedin.com/in/xavier-theimer-lienhard">Linkedin</a><a
+                        style="font-size: medium;"> / </a><a style="font-size: medium;" href="data/CV/">CV</a><a
+                        style="font-size: medium;"> / </a>
+                    <a style="font-size: medium;" href="https://scholar.google.com/">G-Scholar</a><a
+                        style="font-size: medium;">
+                        /
+                    </a>
+                    <a style="font-size: medium;">xavier.theimerlienhard@gmail.com</a>
 
-        </div>
+                </div>
 
-        <!-- <button class="borderman btn-border" style="font-size: 12.5pt; margin-bottom: 20px; margin-top: 15px;"
+                <!-- <button class="borderman btn-border" style="font-size: 12.5pt; margin-bottom: 20px; margin-top: 15px;"
           onclick="goToPage('https://app.simplymeet.me/haroldbenoit')">Book a meeting with me</button> -->
 
-        <br>
+                <br>
+                <br>
+
+                I’m a Postgrad at <a href="https://www.yale.edu/"><img src="images/yale_logo.png" height="20px" width="auto"
+                    style="padding-bottom: 4px;" /> </a> working with the <a
+                    href="https://www.epfl.ch/labs/mlo/light/">Light</a> lab.
+                <br>
+                <br>
+
+                I've been in the <a
+                href="https://jointhemoove.org/meditron">Meditron</a> team for almost 2 years now. Meditron is an academia project that is building and has built SOTA medical LLMs and continues to advance the medical LLM field. 
+                <br>
+                <br>
+                Alongside LLM training, I worked on two projects inside Meditron: the <b>Meditree</b> inference method and the <b>Medipatient</b> synthetic dataset framework.
+                <br>    
+                <br>
+                <br>
 
 
-        <div class="quote-container">
-          <p class="quote">"In the stillness of the night, as jobs hum quietly across GPUs, the mind finds a rare
-            serenity, knowing the work carries on without you."</p>
-          <p class="author">— Claude</p>
-        </div>
+                <h4>News</h4>
 
-        <br>
-        I’m a Member of Technical Staff at <a href="https://www.liquid.ai/">Liquid AI</a>. 
-        <br>
-        <br>
-        I have a <a href="https://www.notes.haroldbenoit.com/">blog</a> where I write down almost everything I learn.
-        <br>
-        <br>
+                <div style="padding-left: 18px;">
+                    <li> <a style="color: grey; font-size: medium;">[December 2024]</a> Our paper was accepted to this workshop.
+                    </li>
+                    <li> <a style="color: grey; font-size: medium;">[December 2024]</a> I was invited to the Meta's first open source ai summit at Palo Alto.
+                    </li>
+                    <li> <a style="color: grey; font-size: medium;">[September 2024]</a> Started my scholarship at <a href="https://www.yale.edu/"><img src="images/yale_logo.png" height="20px" width="auto"
+                        style="padding-bottom: 4px;" /> </a>!
+                    </li>
+                </div>
 
-        In academia, I've previously done more "data-focused" research, exploring <b>scalable ways to identify or
-          synthetize
-          high-quality data</b> with the intent to render models more <a href="#ctd" onclick="goToElement('ctd')"
-          style="background-color: rgb(240, 248, 255);">general</a> and
-        <a href="#diff_dataset" onclick="goToElement('diff_dataset')"
-          style="background-color: rgb(240, 248, 255);">adaptable to new
-          environments</a>
-        <!--  research initiative, co-led by <a
-          href="https://www.epfl.ch/en/"> <img src="images/Logo_EPFL.svg" height="20px" width="auto"
-            style="padding-bottom: 4px;" /> </a> and <a href="https://ethz.ch/en.html"> <img
-            src="images/ETH_Zürich_Logo_black.svg" height="20px" width="auto" style="padding-bottom: 4.5px;" /> </a>.
-        <br>
-        It can be roughly summarized as training LLMs from scratch with 10 million GPU hours of compute, and conducting
-        research along the way.
+                <br>
+                <br>
 
-        -->
-        <br>
-        <br>
+                <h4>Experience</h4>
+                <div style="padding-left: 18px;">
 
+                    <li><a style="color: grey; font-size: medium;">[2024-2025]</a> Postgraduate Associate at <a
+                            href="https://www.yale.edu/"><img src="images/yale_logo.png" height="20px" width="auto"
+                                style="padding-bottom: 4px;" /></a>.</li>
+                    <li><a style="color: grey; font-size: medium;">[2023-2025]</a> Student Research Assistant at
+                        <a href="https://www.epfl.ch/labs/mlo/light/">Light</a>,
+                        <a href="https://www.epfl.ch/en/"><img src="images/Logo_EPFL.svg" height="20px" width="auto"
+                                style="padding-bottom: 4px;" /> </a>
+                        supervised by <a href="https://vilab.epfl.ch/zamir/">Annie Hartley</a> and <a
+                            href="https://vilab.epfl.ch/zamir/">Martin Jaggi</a>.
+                    </li>
+                    <li><a style="color: grey; font-size: medium;">[2022-2025]</a> M.Sc. degree in Data
+                        Science at <a href="https://www.epfl.ch/en/"> <img src="images/Logo_EPFL.svg" height="20px"
+                                width="auto" style="padding-bottom: 4px;" /> </a>.</li>
+                    <li><a style="color: grey; font-size: medium;">[2023-2024]</a> Part-time software developper at
+                        <img src="images/group-logo.png" height="22px" width="auto" style="padding-bottom: 4px;" /></a>.
+                    </li>
+                    <li><a style="color: grey; font-size: medium;">[2023]</a> Software developpement intern at
+                        <img src="images/group-logo.png" height="22px" width="auto" style="padding-bottom: 4px;" /></a>,
+                        supervised by <a href="https://www.linkedin.com/in/margot-clet-2ab756b3/">Margot Clet</a>.
+                    </li>
+                    <li><a style="color: grey; font-size: medium;">[2018-2023]</a> B.Sc. degree in Computer Science &
+                        Communication
+                        Systems at <a href="https://www.epfl.ch/en/">
+                            <img src="images/Logo_EPFL.svg" height="20px" width="auto" style="padding-bottom: 4px;" />
+                        </a>.</li>
 
-        <h4>News/Fun stuff:</h4>
+                </div>
+                <br>
 
-        <div style="padding-left: 18px;">
-          <li> <a style="color: grey; font-size: medium;">[June 2024]</a> Implemented from scratch <a
-              href="https://github.com/HaroldBenoit/protein-diffusion-DiT">a protein structure diffusion model</a>.
-          </li>
-          <li> <a style="color: grey; font-size: medium;">[April 2024]</a> Finished 1st place in the <a
-              href="https://lauzhack-llms-genai-2024.devpost.com">LLM training hackathon</a>.
-          </li>
-
-          <li> <a style="color: grey; font-size: medium;">[January 2024]</a> <a href="#ctd" onclick="goToElement('ctd')"
-              style="background-color: rgb(240, 248, 255);">Diversification methods paper</a>
-            accepted at ICLR 2024.
-          </li>
-        </div>
-
-        <ul style="padding-left: 18px; font-size: medium">
-
-        </ul>
-
-        <br>
-
-
-        <h4>Experience</h4>
-
-        <div style="padding-left: 18px;">
-
-          <li><a style="color: grey; font-size: medium;">[2024]</a> LLMs @ <a href="https://www.swiss-ai.org/">Swiss
-              AI</a> </li>
-
-          <li><a style="color: grey; font-size: medium;">[2023-2024]</a> Research Associate at <a
-              href="https://vilab.epfl.ch/">VILAB</a>, <a href="https://www.epfl.ch/en/">
-              <img src="images/Logo_EPFL.svg" height="20px" width="auto" style="padding-bottom: 4px;" /> </a> ,
-            supervised by <a href="https://vilab.epfl.ch/zamir/">Amir Zamir</a>. </li>
-
-          <li><a style="color: grey; font-size: medium;">[2021-2023]</a> M.Sc. degree in Data
-            Science (ranked 3rd in year) at <a href="https://www.epfl.ch/en/"> <img src="images/Logo_EPFL.svg"
-                height="20px" width="auto" style="padding-bottom: 4px;" /> </a>.</li>
-
-
-          <li><a style="color: grey; font-size: medium;">[2023]</a> Research Intern at <a
-              href="https://research.ibm.com/">
-              <img src="images/IBM_logo.svg" height="22px" width="auto" style="padding-bottom: 4px;" /> Research</a>,
-            supervised by <a href="http://www.matrig.net/">Mattia Rigotti</a>. </li>
-
-
-          <li><a style="color: grey; font-size: medium;">[2022]</a> Quantitative Research Intern at <a
-              href="https://www.gresearch.com/"> G-Research <img src="images/g-research.svg" height="29px" width="auto"
-                style="padding-bottom: 4px;" /></a>.</li>
-
-          <li><a style="color: grey; font-size: medium;">[2018-2021]</a> B.Sc. degree in Computer Science &
-            Communication
-            Systems at <a href="https://www.epfl.ch/en/">
-              <img src="images/Logo_EPFL.svg" height="20px" width="auto" style="padding-bottom: 4px;" /> </a>.</li>
-
-        </div>
+            </div>
 
 
 
+            <div class="col-4 d-none d-sm-block" style="padding-left: 20px; padding-top: 10px;">
 
 
+                <div class="diamond" >
 
-
-        <!-- During my studies, I also worked as a research assistant for <a href="https://lts2.epfl.ch/">LTS2</a>, <a href="https://www.epfl.ch/labs/ice/">ICE</a>, and <a href="https://dcl.epfl.ch/site/">DCL</a> laboratories. -->
-
-        <br>
-
-      </div>
-
-
-
-      <div class="col-4 d-none d-sm-block" style="padding-left: 20px; padding-top: 10px;">
-
-
-        <div class="image-container" style="width: 300px;">
-          <p id="image-description" style="text-align: center;">Original</p>
-
-          <img id="main-image" src="images/me.jpg" alt="me.jpg"
-            style="max-width: 100% ; height: auto; margin-bottom: 5px;">
-          <!-- <div id="image-container">
+                    <img id="main-image" src="images/me.jpg" alt="me.jpg"
+                        style="max-width: 100% ; height: auto; margin-bottom: 5px;">
+                    <!-- <div id="image-container">
             <img id="main-image" src="images/me.jpg" alt="Image 1">
           </div> -->
 
-          <!-- <button class="borderman btn-border" style="margin-right: 2px;" onclick="prevImage()">&#8592</button>
+                    <!-- <button class="borderman btn-border" style="margin-right: 2px;" onclick="prevImage()">&#8592</button>
           <a style="text-align:center; font-size: 13pt;"> AI versions of me</a>   -->
-          <button class="borderman btn-border" style="font-size: 13pt; margin-left: 30px; margin-right: 30px;"
-            onclick="nextImage()">New AI version of me</button>
+                    <button class="borderman btn-border" style="font-size: 13pt; margin-left: 30px; margin-right: 30px;"
+                        onclick="nextImage()">New AI version of me</button>
+
+                </div>
+
+            </div>
+
 
         </div>
 
-      </div>
+        <br>
+        <br>
+
+        <div class="row">
+            <div id="Publications" class="col-8">
 
 
+
+
+                <h4>Publications</h4>
+
+
+                
+
+                <!-- <table>
+                    <tr onmouseout="diff_stop()" onmouseover="diff_start()" id="diff_dataset">
+                        <td style="padding:20px;width:25%;vertical-align:middle">
+                            <div class="one">
+                                <div class="two" id='diff_image'><video width=100% muted autoplay loop>
+                                        <source src="images/diff_dataset/preview.mp4" type="video/mp4">
+                                        Your browser does not support the video tag.
+                                    </video></div>
+                                <img src='images/diff_dataset/label.webp' width=100%>
+                            </div>
+                            <script type="text/javascript">
+                                function diff_start() {
+                                    document.getElementById('diff_image').style.opacity = "1";
+                                }
+
+                                function diff_stop() {
+                                    document.getElementById('diff_image').style.opacity = "0";
+                                }
+                                diff_start()
+                            </script>
+
+                        <td style="padding: 20px; width: 75%; vertical-align: middle;">
+                            <a href="https://adversarial-prompts.epfl.ch">
+                                <span class="papertitle">Controlled Training Data Generation with Diffusion Models
+                                </span>
+                            </a>
+                            <br>
+                            <a href="https://aserety.github.io">Teresa Yeo*</a>,
+                            <a href="https://andrewatanov.github.io">Andrei Atanov*</a>,
+                            <strong>Harold Benoit^</strong>,
+                            Aleksandr Alekseev^,
+                            <a href="https://www.cs.utexas.edu/~ruchira">Ruchira Ray</a>,
+                            Pooya Akhoondi,
+                            <a href="https://vilab.epfl.ch/zamir/">Amir Zamir</a>
+
+                            <br>
+
+                            <em>In review</em>, 2024
+                            <br>
+                            <a href="https://arxiv.org/abs/2403.15309">arXiv</a> /
+                            <a href="https://github.com/EPFL-VILAB/adversarial-prompts">Github</a> /
+                            <a href="https://adversarial-prompts.epfl.ch">project page</a>
+                            <p></p>
+                            <p>
+                                We propose a method to <b>generate tailored synthetic training data</b>, i.e.,
+                                specifically useful for a
+                                given
+                                supervised
+                                model
+                                and target deployment domain. We introduce two feedback mechanisms to guide the
+                                generation: 1)
+                                model-based and 2)
+                                target domain-based.
+
+                            </p>
+                        </td>
+                    </tr>
+                </table>-->
+
+
+
+
+
+
+
+                <!-- CTD -->
+
+
+<!-- 
+                <table>
+                    <tr>
+
+                    <tr onmouseout="ctd_stop()" onmouseover="ctd_start()" id="ctd">
+                        <td style="padding:20px;width:25%;vertical-align:middle">
+                            <div class="one">
+                                <div class="two" id='ctd_image'>
+                                    <img src='images/ctd/lee_setup_-2.png' width=100%>
+                                </div>
+                                <img src='images/ctd/lee_setup_-1.png' width=100%>
+                            </div>
+                            <script type="text/javascript">
+                                function ctd_start() {
+                                    document.getElementById('ctd_image').style.opacity = "1";
+                                }
+
+                                function ctd_stop() {
+                                    document.getElementById('ctd_image').style.opacity = "0";
+                                }
+                                ctd_stop()
+                            </script>
+
+                        <td style="padding: 20px; width: 75%; vertical-align: middle; text-align: left;">
+                            <a href="https://arxiv.org/abs/2312.16313">
+                                <span class="papertitle">Unraveling the Key Components of OOD Generalization via
+                                    Diversification</span>
+                            </a>
+                            <br>
+                            <strong>Harold Benoit*</strong>,
+                            <a href="https://liangzejiang.github.io">Liangze Jiang*</a>,
+                            <a href="https://andrewatanov.github.io">Andrei Atanov*</a>,
+                            <a href="https://ofkar.github.io/">Oğuzhan Fatih Kar</a>,
+
+                            <a href="http://www.matrig.net/">Mattia Rigotti</a>,
+
+                            <a href="https://vilab.epfl.ch/zamir/">Amir Zamir</a>
+
+                            <br>
+
+                            <em>ICLR</em>, 2024
+                            <br>
+                            <a href="https://arxiv.org/abs/2312.16313">arXiv</a> /
+                            <a href="https://openreview.net/forum?id=Lvf7GnaLru">OpenReview</a>
+                            <p></p>
+                            <p>
+
+                                We distill the critical design factors of current state-of-the-art methods
+                                (multi-hypotheses/diversification methods) for spurious correlation situations.
+                            </p>
+                        </td>
+                    </tr>
+                </table> -->
+
+
+
+
+
+            </div>
+        </div>
     </div>
-
-
-
-    <div class="row mt-3">
-      <div class="col">
-
-
-
-
-        <h3 style="text-align: center;">Publications</h3>
-
-
-        <!-- DIFF DATASET -->
-
-        <table>
-          <tr onmouseout="diff_stop()" onmouseover="diff_start()" id="diff_dataset">
-            <td style="padding:20px;width:25%;vertical-align:middle">
-              <div class="one">
-                <div class="two" id='diff_image'><video width=100% muted autoplay loop>
-                    <source src="images/diff_dataset/preview.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                  </video></div>
-                <img src='images/diff_dataset/label.webp' width=100%>
-              </div>
-              <script type="text/javascript">
-                function diff_start() {
-                  document.getElementById('diff_image').style.opacity = "1";
-                }
-
-                function diff_stop() {
-                  document.getElementById('diff_image').style.opacity = "0";
-                }
-                diff_start()
-              </script>
-
-            <td style="padding: 20px; width: 75%; vertical-align: middle;">
-              <a href="https://adversarial-prompts.epfl.ch">
-                <span class="papertitle">Controlled Training Data Generation with Diffusion Models </span>
-              </a>
-              <br>
-              <a href="https://aserety.github.io">Teresa Yeo*</a>,
-              <a href="https://andrewatanov.github.io">Andrei Atanov*</a>,
-              <strong>Harold Benoit^</strong>,
-              Aleksandr Alekseev^,
-              <a href="https://www.cs.utexas.edu/~ruchira">Ruchira Ray</a>,
-              Pooya Akhoondi,
-              <a href="https://vilab.epfl.ch/zamir/">Amir Zamir</a>
-
-              <br>
-
-              <em>In review</em>, 2024
-              <br>
-              <a href="https://arxiv.org/abs/2403.15309">arXiv</a> /
-              <a href="https://github.com/EPFL-VILAB/adversarial-prompts">Github</a> /
-              <a href="https://adversarial-prompts.epfl.ch">project page</a>
-              <p></p>
-              <p>
-                We propose a method to <b>generate tailored synthetic training data</b>, i.e., specifically useful for a
-                given
-                supervised
-                model
-                and target deployment domain. We introduce two feedback mechanisms to guide the generation: 1)
-                model-based and 2)
-                target domain-based.
-
-              </p>
-            </td>
-          </tr>
-        </table>
-
-
-
-
-
-
-
-        <!-- CTD -->
-
-
-
-        <table>
-          <tr>
-
-          <tr onmouseout="ctd_stop()" onmouseover="ctd_start()" id="ctd">
-            <td style="padding:20px;width:25%;vertical-align:middle">
-              <div class="one">
-                <div class="two" id='ctd_image'>
-                  <img src='images/ctd/lee_setup_-2.png' width=100%>
-                </div>
-                <img src='images/ctd/lee_setup_-1.png' width=100%>
-              </div>
-              <script type="text/javascript">
-                function ctd_start() {
-                  document.getElementById('ctd_image').style.opacity = "1";
-                }
-
-                function ctd_stop() {
-                  document.getElementById('ctd_image').style.opacity = "0";
-                }
-                ctd_stop()
-              </script>
-
-            <td style="padding: 20px; width: 75%; vertical-align: middle; text-align: left;">
-              <a href="https://arxiv.org/abs/2312.16313">
-                <span class="papertitle">Unraveling the Key Components of OOD Generalization via
-                  Diversification</span>
-              </a>
-              <br>
-              <strong>Harold Benoit*</strong>,
-              <a href="https://liangzejiang.github.io">Liangze Jiang*</a>,
-              <a href="https://andrewatanov.github.io">Andrei Atanov*</a>,
-              <a href="https://ofkar.github.io/">Oğuzhan Fatih Kar</a>,
-
-              <a href="http://www.matrig.net/">Mattia Rigotti</a>,
-
-              <a href="https://vilab.epfl.ch/zamir/">Amir Zamir</a>
-
-              <br>
-
-              <em>ICLR</em>, 2024
-              <br>
-              <a href="https://arxiv.org/abs/2312.16313">arXiv</a> /
-              <a href="https://openreview.net/forum?id=Lvf7GnaLru">OpenReview</a>
-              <p></p>
-              <p>
-
-                <!-- influencing the out-of-distribution generalization -->
-                We distill the critical design factors of current state-of-the-art methods
-                (multi-hypotheses/diversification methods) for spurious correlation situations.
-              </p>
-            </td>
-          </tr>
-        </table>
-
-
-
-
-
-      </div>
-    </div>
-  </div>
 </body>
 
 
-<footer class="footer">
-  <p>&copy; 2025 Harold Benoit. All rights reserved.</p>
 
-  Opinions expressed are solely my own and do not express the views
-  or opinions of my employer.
-</footer>
 
 </html>
