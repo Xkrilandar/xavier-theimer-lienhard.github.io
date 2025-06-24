@@ -57,142 +57,36 @@
             <div id="About Me" class="col-10" style="text-align: justify;">
                 <h1>Xavier Theimer-Lienhard</h1>
                 <div style="top: -5px; position: relative; padding-bottom: 0px;">
-                    <nav>
-                        <a style="font-size: medium;" href="https://github.com/Xkrilandar">Github</a><a
-                        style="font-size: medium;"> |
-                        </a>
-                        <a style="font-size: medium;"
-                            href="https://www.linkedin.com/in/xavier-theimer-lienhard">Linkedin</a><a
-                            style="font-size: medium;"> | </a><a style="font-size: medium;" href="CV-nov-2024.pdf">CV</a><a
-                            style="font-size: medium;"> | </a>
-                        <a style="font-size: medium;" href="https://scholar.google.com/">G-Scholar</a><a
-                            style="font-size: medium;">
-                    </nav>
-                    <nav>
-                        <a href="index.html">Go back</a>
-                    </nav>
 
-
-                </div>
+                <nav>
+                    <a href="index.html">Go back</a>
+                </nav>
                 <br>
                 <br>
-                <p><strong>MediTree: Bringing Structured, Tree-of-Thoughts Inference to Medical LLMs</strong></p>
-                <p>When building large language models (LLMs) for healthcare, one core challenge looms large: how can we ensure that our model not only delivers the correct diagnosis but also “thinks” in a way that mirrors the step-by-step reasoning of an experienced clinician? Enter <strong>MediTree</strong>, an inference pipeline co-developed with medical doctors that combines the power of modern LLMs with a structured, Tree-of-Thoughts (ToT) sampling strategy. In this post, I’ll walk you through why MediTree matters, how it works under the hood, and the gains it unlocks on real medical benchmarks.</p>
-                <hr>
-                <h2 id="why-we-built-meditree">Why We Built MediTree</h2>
-                <p>Most LLMs—no matter how large—still struggle when faced with complex clinical scenarios involving multiple differential diagnoses. A straightforward chain-of-thought prompt (“Think step by step…”) can help, but it often generates a single linear reasoning path. Real clinical decision-making, however, resembles a branching tree: as physicians, we consider <em>many</em> hypotheses in parallel, prune unlikely possibilities early, and revisit or refine our reasoning whenever new data emerge.</p>
-                <p>MediTree was designed to replicate that branching, “consider-and-prune” style:</p>
-                <ol>
-                <li><p><strong>Multiple Hypotheses in Parallel</strong>
-                Rather than producing a single chain of thought, MediTree explores <em>several</em> candidate “thoughts” (i.e., possible diagnoses or reasoning steps) at each stage.</p>
-                </li>
-                <li><p><strong>Iterative Refinement</strong>
-                By evaluating and scoring each candidate in parallel, the pipeline can discard low-probability branches early and focus compute on the most promising lines of reasoning.</p>
-                </li>
-                <li><p><strong>Clinician-Inspired Workflow</strong>
-                The pipeline’s four components—Chat, Generation, Evaluation, and Selection—mirror how a doctor might sequentially gather more context, generate possible diagnoses, assess each candidate, and decide whether more exploration is needed.</p>
-                </li>
-                </ol>
-                <p>The result? An inference procedure that systematically uncovers the most likely diagnosis (or set of diagnoses) while exposing its own reasoning in a transparent, tree-structured format.</p>
-                <hr>
-                <h2 id="the-four-pillars-of-meditree">The Four Pillars of MediTree</h2>
-                <p>MediTree’s inference loop revolves around four distinct but interconnected components. I’ll break each one down and show how they work together to produce more robust, medically sound outputs.</p>
-                <h3 id="1-chat-enriching-patient-context">1. Chat: Enriching Patient Context</h3>
-                <p><strong>Goal:</strong> Emulate a physician’s initial conversation with a patient to gather missing details.</p>
-                <ul>
-                <li><strong>What It Does</strong>: Starting from a free-text case description (e.g., “A 45-year-old male with progressive cervical lymphadenopathy over three months…”), the Chat module prompts the LLM to ask clarifying questions—“Can you describe the duration of your symptoms?” or “Are there any systemic signs, like fever or weight loss?”</li>
-                <li><strong>Why It Matters</strong>: Real doctors know that the “devil is in the details.” Even a concise case summary frequently lacks critical information (e.g., travel history, past medical conditions, medication use). By systematically soliciting this data in a turn-by-turn dialogue, MediTree builds a more complete patient profile before diving into reasoning.</li>
-                </ul>
-                <p>As the user (or simulated “patient”) responds, MediTree updates the case note—adding new symptom details, lab results, or historical factors. This refreshed, iterative patient note becomes the basis for all downstream inference steps.</p>
-                <hr>
-                <h3 id="2-generation-proposing-candidate-diagnoses">2. Generation: Proposing Candidate Diagnoses</h3>
-                <p><strong>Goal:</strong> Generate a diverse set of possible diagnostic “thoughts” in parallel.</p>
-                <ul>
-                <li><strong>Tree-of-Thoughts Sampling</strong>: Rather than sampling a single answer with greedy decoding or beam search, MediTree uses a high temperature (e.g., 1.5) and draws <em>multiple</em> candidates (typically eight) from the same prompt. Each candidate represents a plausible “next step” in the diagnostic reasoning, often phrased as “Potential diagnosis: X,” or “Given these symptoms, I suspect Y.”</li>
-                <li><strong>Batch Generation</strong>: All eight (or more) candidates are generated in one batch. This encourages diversity—some candidates might focus on common causes, others on rare but critical conditions.</li>
-                </ul>
-                <p>By producing a set of diverse initial hypotheses, the pipeline mimics how a clinician jots down a list of differential diagnoses (e.g., lymphoma vs. tuberculosis vs. metastatic cancer) before ordering confirmatory tests.</p>
-                <hr>
-                <h3 id="3-evaluation-scoring-each-hypothesis">3. Evaluation: Scoring Each Hypothesis</h3>
-                <p><strong>Goal:</strong> Assign a confidence score to each generated candidate to gauge its relative plausibility.</p>
-                <ul>
-                <li><strong>Sampling-Based Probability Approximation</strong>: For each hypothesis, MediTree measures how often that same diagnosis appears across multiple “mini-batches” of high-temperature sampling. In practice, you might regenerate the list of eight candidates multiple times (e.g., three or four rounds). If “Lymphoma” appears in 12 out of 32 total generated candidates, its approximate probability is 12/32 ≈ 0.375.</li>
-                <li><strong>Quality Over Raw Logits</strong>: Instead of trusting raw softmax probabilities (which can be unreliable, especially in medical contexts), this sampling-based frequency method provides a more robust proxy for each hypothesis’s likelihood.</li>
-                </ul>
-                <p>At the end of this step, every candidate diagnosis is tagged with a score between 0 and 1, reflecting how consistently the model “thinks” that diagnosis is plausible given the current patient information.</p>
-                <hr>
-                <h3 id="4-selection-growing-pruning-the-tree">4. Selection: Growing &amp; Pruning the Tree</h3>
-                <p><strong>Goal:</strong> Determine which branches deserve further exploration and when to stop.</p>
-                <ul>
-                <li><p><strong>Entropy Check</strong>: Once you have a distribution of candidate probabilities, compute the Shannon entropy $H = -\sum_i p_i \log_2(p_i)$.</p>
-                <ul>
-                <li>If $H$ is <strong>high</strong>, it means the model is uncertain (multiple diagnoses share similar scores). In this case, MediTree prunes out the lower-scoring half (or a fixed fraction) and asks the model to <strong>re-generate</strong> new candidates from the top set, repeating Generation + Evaluation until entropy falls below a predefined threshold (e.g., $H &lt; 0.5$).</li>
-                <li>If $H$ is <strong>low</strong>, it implies strong consensus around a small set of diagnoses—time to call it a day.</li>
-                </ul>
-                </li>
-                <li><p><strong>Branch Refinement</strong>: In practice, MediTree doesn’t just restart from scratch after pruning; it conditions on the “surviving” top-k diagnoses and asks the model something like, “Given that we think Lymphoma or Tuberculosis are most likely, what additional tests or mini-differential steps should we consider next?” This creates sub-branches under each top-candidate, adding depth to the reasoning tree.</p>
-                </li>
-                <li><p><strong>Stopping Criterion</strong>: As soon as one candidate’s probability significantly outpaces the rest (e.g., $p_{\text{Lymphoma}} = 0.75$ vs. all others ≤ 0.10), or entropy dips below the threshold, MediTree terminates the loop. The final output is the top-scoring diagnosis, along with the partial “thought tree” that led there.</p>
-                </li>
-                </ul>
-                <hr>
-                <h2 id="putting-it-all-together-a-mini-example">Putting It All Together: A Mini Example</h2>
-                <p>Let’s say the initial case is:</p>
-                <blockquote>
-                <p><strong>Patient</strong>: A 30-year-old woman presents with ambiguous genitalia at birth, a history of neonatal hypoglycemia, and now presents with salt-wasting hypotension.</p>
-                </blockquote>
-                <ol>
-                <li><strong>Chat</strong>: MediTree might ask, “Were there any electrolyte disturbances noted in infancy?” The user replies, “Yes, we saw hyponatremia and hyperkalemia.” The updated case note now includes those lab values.</li>
-                <li><strong>Generation</strong>: The model produces eight hypotheses: (a) 21-hydroxylase deficiency, (b) 11-β-hydroxylase deficiency, (c) 17-alpha-hydroxylase deficiency, (d) 5-alpha-reductase deficiency, etc.</li>
-                <li><strong>Evaluation</strong>: After sampling three more batches, “21-hydroxylase deficiency” appears 17 times out of 32 (≈0.53), “11-β-hydroxylase” appears 8/32 (≈0.25), and others fill in the rest. Entropy is still moderately high (≈1.1 bits), so we need one more pruning step.</li>
-                <li><strong>Selection &amp; Refinement</strong>: We keep “21-hydroxylase” and “11-β-hydroxylase,” ask a follow-up prompt focusing on these two (“Between 21-hydroxylase and 11-β-hydroxylase deficiency, what distinguishing lab tests should we order?”). After evaluating those sub-branches, “21-hydroxylase deficiency” emerges with 0.82 confidence (entropy ≈0.5). Pipeline ends with “21-hydroxylase deficiency” as the final diagnosis, and we’ve captured a concise reasoning path: initial hypothesis → lab update → refined differential → final decision.</li>
-                </ol>
-                <hr>
-                <h2 id="the-impact-benchmark-performance-beyond">The Impact: Benchmark Performance &amp; Beyond</h2>
-                <p>In our experiments (LLama-3-Meditron family), combining MediTree with an 8B-parameter model yields substantial gains:</p>
-                <ul>
-                <li><strong>MedMCQA</strong>: 61.1% accuracy (vs. 57.8% for base Meditron-8B)</li>
-                <li><strong>MedQA</strong>: 69.9% (vs. 63.0%)</li>
-                <li><strong>PubMedQA</strong>: 79.2% (vs. 76.8%)</li>
-                </ul>
-                <p>On average, MediTree-powered Meditron-8B achieves <strong>70.1%</strong>, a &gt;4 point boost over the base model—and even rivals much larger 70B-parameter competitors. The full 70B MediTree variant climbs to <strong>81.0%</strong> average accuracy, topping all other open-weight medical LLMs (and even edging out MedPaLM-2 and GPT-4 in some tasks).</p>
-                <p>These improvements aren’t just numeric—they reflect the tangible benefit of structured, multi-path reasoning. By exploring multiple diagnostic possibilities in parallel, scoring them robustly, and asking targeted follow-up questions, MediTree recreates a “mini-ward-round” logic that traditional single-pass inference pipelines miss.</p>
-                <hr>
-                <h2 id="why-it-matters-for-real-world-clinical-ai">Why It Matters for Real-World Clinical AI</h2>
-                <ol>
-                <li><p><strong>Transparency &amp; Trust</strong>
-                Clinicians can see the intermediate branches and branch-pruning rationale—no “black box” surprises. If you disagree with the final answer, you can trace back exactly which hypotheses were discarded and why.</p>
-                </li>
-                <li><p><strong>Error Detection</strong>
-                By forcing the model to explicitly compare top candidates (e.g., “21-hydroxylase vs. 11-β-hydroxylase”), MediTree surfaces any close calls. If both have similar scores, you know the case is ambiguous and warrants human review.</p>
-                </li>
-                <li><p><strong>Adaptive Testing Suggestions</strong>
-                The iterative “Generation → Evaluation → Selection” loop naturally suggests which lab tests or follow-up questions matter most. This can guide clinicians toward high-yield diagnostics instead of ordering a battery of low-value tests.</p>
-                </li>
-                <li><p><strong>Scalability</strong>
-                Although exploring multiple branches can increase inference time, MediTree’s entropy-based pruning avoids exhaustive tree growth. In practice, most medical cases converge within 2–3 iterations, keeping runtimes reasonable—especially on modern GPU clusters.</p>
-                </li>
-                </ol>
-                <hr>
-                <h2 id="looking-ahead">Looking Ahead</h2>
-                <p>MediTree represents a step toward more clinically realistic LLM inference. That said, we’re already exploring next steps:</p>
-                <ul>
-                <li><p><strong>Human-in-the-Loop Calibration</strong>
-                Inviting radiologists, pathologists, and specialist physicians to grade not only the final answer but also the intermediate branches—ensuring that every step aligns with best medical practice.</p>
-                </li>
-                <li><p><strong>Integration with Real-Time Data</strong>
-                Allowing the “Chat” component to pull in live lab values, imaging reports, or even EHR snippets, so that MediTree can dynamically update the patient note without manual intervention.</p>
-                </li>
-                <li><p><strong>Bias &amp; Fairness Audits</strong>
-                Systematically evaluating whether certain demographic groups (e.g., pediatrics vs. geriatrics, or different ethnicities) systematically skew the branch scoring. If a rare disease is underrepresented in training data, we want MediTree to flag that potential blind spot.</p>
-                </li>
-                <li><p><strong>Cross-Modal Extensions</strong>
-                Adding the ability to reason over radiology images or pathology slides alongside text instructions. Imagine a pipeline that says, “Given this CT scan showing ground-glass opacities and the clinical triad, my top two hypotheses are COVID-19 pneumonia vs. organizing pneumonia. Here’s how I’d differentiate them…”</p>
-                </li>
-                </ul>
-                <hr>
-                <h3 id="in-summary">In Summary</h3>
-                <p>MediTree brings a clinician’s mindset to LLM inference: generate multiple hypotheses, score them robustly, refine until you’re confident, and always keep the reasoning visible. By integrating Tree-of-Thoughts sampling with a medical decision-making workflow, MediTree empowers modern medical LLMs like Meditron to deliver both higher accuracy and greater interpretability. If you’re building or evaluating a medical LLM, consider whether your inference procedure genuinely mirrors how a real doctor thinks—and give MediTree a try.</p>
+                <h3>Enhancing Meditron Accuracy With Meditree</h3>
+
+
+
+                <h4>Methods</h4>
+                
+                <img src="images/meditree_abstract_graph.png" class="img-fluid" alt="Meditree Abstract Graph">
+
+                <br>
+                Developed Meditree, a Tree of thought inference method that led to 5% improvement on medical benchmarks for our Medical LLM.
+                <br>
+                <br>
+                
+                <h4>Results</h4>
+
+                <img src="images/meditree_results_graph.png" class="img-fluid" alt="Meditree Results Graph">
+                <br>
+                Meditron outperforms its base model by 3% on medical benchmarks, and our Meditree inference method allows us to reach GPT4-Base performance of 80% accuracy on medical benchmarks, a 5% gain over Meditron alone.
+                
+                
+                <br>
+                <br>
+
+                
 
 
             </div>
@@ -202,17 +96,17 @@
                 <h4>Appears on</h4>
 
                 <div style="display:flex; align-items:center; justify-content: flex-start;margin-top: 0px">
-                    <img src="images/reasoning.png" alt="Reasoning" style="width:270px; height:180px; margin-right:10px; margin-left:0px; max-width:40%; height:auto;">
+                    <img src="images/MeditreeFig.png" alt="MeditreeFig" style="width:270px; height:180px; margin-right:10px; margin-left:0px; max-width:40%; height:auto;">
                     <div>
-                        <a href="https://github.com/Xkrilandar/xavier-theimer-lienhard.github.io/blob/main/2025a_MScReport_TheimerLienhardXavier.pdf"><strong>Enhancing Meditron capabilities with synthetic and reasoning datasets</strong></a>
+                        <a href="https://openreview.net/forum?id=ZcD35zKujO"><strong>Llama-3-Meditron: An Open-Weight Suite of Medical LLMs</strong></a>
                         <br>
-                        <strong>X. Theimer-Lienhard</strong>, M. Jaggi, M.-A. Hartley.
+                        A. Sallinen, A. Solergibert, M. Zhang, G. Boyé, M. Dupont-Roc, <strong>X. Theimer-Lienhard</strong>, E. Boisson, B. Bernath, H. Hadhri, A. Tran, et al.
                         <br>
-                        <em>Master thesis</em>
+                        <em>AAAI 2025, Gen AI for health</em>
                         <br>
-                        <a href="https://github.com/Xkrilandar/xavier-theimer-lienhard.github.io/blob/main/2025a_MScReport_TheimerLienhardXavier.pdf">Pdf</a>
+                        <a href="https://openreview.net/forum?id=ZcD35zKujO">OpenReview</a>
                         <br>
-                        We improved the Meditron models' step-by-step analytical processes by training on specialized reasoning datasets.
+                        We finetune Llama-3.1 with the Meditron mixture using SFT and ORPO, and present the Meditree inference method. 
                     </div>
                 </div>
 
