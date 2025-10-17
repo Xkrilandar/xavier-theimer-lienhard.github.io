@@ -3,6 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta property="og:title" content="Xavier Theimer-Lienhard — Meditron, RLHF, open medical LLMs" />
+    <meta property="og:description" content="Research associate at LiGHT (EPFL/Yale). Core contributor to Meditron and open medical LLMs." />
+    <meta property="og:image" content="https://yourdomain.com/assets/photo.jpg" />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
     <title>Xavier Theimer-Lienhard - Portfolio</title>
     <!--
       This site is intentionally light on external dependencies.  The only
@@ -32,6 +37,25 @@
         y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
     })(window, document, "clarity", "script", "tft1s1vq5o");
     </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Xavier Theimer-Lienhard",
+      "affiliation": [{
+        "@type": "Organization",
+        "name": "LiGHT Lab (EPFL/Yale)"
+      }],
+      "jobTitle": "Research Associate",
+      "url": "https://your-domain/",
+      "sameAs": [
+        "https://github.com/Xkrilandar",
+        "https://huggingface.co/Xkrilandar",
+        "https://www.linkedin.com/in/xavier-theimer-lienhard",
+        "https://scholar.google.com/citations?user=vgWG6DsAAAAJ"
+      ]
+    }
+    </script>
   </head>
   <body>
     <!-- Navigation bar -->
@@ -58,8 +82,8 @@
       <div class="hero-content">
         <h1>Xavier Theimer-Lienhard</h1>
         <p>
-          Research associate in machine learning<br />
-          Reinforcement learning &amp; generative AI enthusiast
+          Research associate, LiGHT<br />
+          Meditron core team: RL, reasoning, open medical LLMs
         </p>
         <a href="#contact" class="btn">Get in touch</a>
       </div>
@@ -72,29 +96,23 @@
         <div class="about-grid">
           <div class="about-text">
             <p>
-              I am currently a research associate at the
-              <strong>LiGHT Lab</strong> (Meditron) at EPFL. My
-              work spans reinforcement learning, synthetic data generation and
-              large language models. In 2025 I led the reinforcement
-              learning/ reasoning team for the Meditron project and
-              spearheaded post-training and distillation efforts that resulted
-              in significant gains on general and medical benchmarks.  I also
-              co-designed our model evaluation pipeline and optimized
-              training at scale using vLLM, DeepSpeed and Axolotl.
+              I'm a research associate with the <strong>LiGHT Lab</strong> (Meditron) at EPFL, embedded in the
+              Meditron program end-to-end across training, evaluation, and deployment. I started in 2023 in
+              “hackathon-style” sprints that produced early Meditron finetunes in record time. As I took on more of the
+              stack, I was invited to Yale (Short-Term Scholar) and asked to lead sub-projects in <em>Meditron-Reasoning</em>
+              (RLHF + reasoning) and <em>Meditron-Synthetic</em> (safe clinical data generation).
             </p>
             <p>
-              Prior to this role, I contributed to the development of
-              Meditree, a tree-of-thought inference method for medical
-              diagnosis, and built synthetic data pipelines for structured
-              medical guidelines.  During my MSc at EPFL I also worked part
-              time as a software engineer at Irbis Consulting where I
-              developed an Electron app to automate bidding documents and
-              created a deep-learning captcha solver in PyTorch.
+              My work focuses on making medical LLMs <em>efficient</em>, <em>interpretable</em>, and <em>auditable</em>:
+              I co-designed evaluation pipelines, led RL and reasoning post-training on HPC, and built <em>Meditree</em>, a
+              multi-agent inference method that mirrors clinical reasoning. Recently, I co-led <em>Apertus-Meditron-FO</em>,
+              a fully open adaptation of the Swiss Apertus models for medicine, including an open medical corpus and
+              fine-tuning of 8B/70B variants.
             </p>
             <p>
               I hold a Master's degree in Data Science
               from EPFL (GPA 5.4/6) and a Bachelor's degree in Communication Systems. 
-              When I'm not coding, I like to indulge in a little bit of running, climbing, 
+              When I'm not iterating on training runs, I like to indulge in a little bit of running, climbing, 
               random wikipedia articles reading sessions, café hopping (just this year i 
               went from tea afficionado to chai lover to black coffee extremist). 
               I have also been dubbed king of brunch by my friends. 
@@ -102,10 +120,7 @@
           </div>
           <div class="about-image">
             <!-- Portait -->
-            <img
-              src="assets/photo.jpg"
-              alt="Portait"
-            />
+            <img src="assets/photo.jpg" alt="Portrait of Xavier Theimer-Lienhard" />
           </div>
         </div>
       </div>
@@ -127,21 +142,11 @@
               </div>
               <span class="date">April 2025 - Present</span>
                 <ul>
-                  <li>
-                    Co-led the development of <em>Apertus-Meditron-FO</em>, a fully open medical adaptation of Apertus 8B/70B.
-                  </li>
-                  <li>
-                    Curated and standardized the <em>Mediset</em> instruction-tuning corpus with rationale generation and PMC evidence augmentation.
-                  </li>
-                  <li>
-                    Engineered multi-node training workflows with Axolotl + DeepSpeed ZeRO-3 on HPC clusters for reproducible large-scale finetuning.
-                  </li>
-                  <li>
-                    Delivered ~10 pp improvement on medical benchmarks.
-                  </li>
-                  <li>
-                    Championed full-stack openness and auditability for clinical LLMs through public release of weights, datasets, and training methods.
-                  </li>
+                  <li>Co-led <em>Apertus-Meditron-FO</em>, a fully open medical adaptation of Apertus 8B/70B.</li>
+                  <li>Curated and standardized the <em>Mediset</em> instruction-tuning corpus with rationale and PMC evidence.</li>
+                  <li>Built reproducible multi-node training workflows (Axolotl + DeepSpeed ZeRO-3) on HPC clusters.</li>
+                  <li>Delivered consistent gains on medical benchmarks via domain-specific adaptation and careful evaluation.</li>
+                  <li>Championed end-to-end openness: released weights, datasets, and training methods for auditability.</li>
                 </ul>
             </div>
           </div>
@@ -155,31 +160,13 @@
                 <h3>Short Term Scholar at Yale University - LiGHT Lab (Meditron)</h3>
               </div>
               <span class="date">Sep 2024 - April 2025</span>
-              <ul>
-                <li>
-                  Led the Meditron reinforcement learning / reasoning team
-                  and implemented RLHF post-training (GRPO) and SFT reasoning
-                  distillation.
-                </li>
-                <li>
-                  Optimised model training on SLURM clusters with vLLM,
-                  DeepSpeed and Axolotl.
-                </li>
-                <li>
-                  Built evaluation pipelines (MCQA, model judges) and achieved
-                  +30 percentage-point improvement on general benchmarks and
-                  +9 points on medical benchmarks.
-                </li>
-                <li>
-                  Led synthetic data generation team, creating safe and
-                  representative datasets of synthetic clinical notes and
-                  collaborating with medical doctors.
-                </li>
-                <li>
-                  Mentored a small team of students and coordinated weekly
-                  meetings.
-                </li>
-              </ul>
+                <ul>
+                  <li>Led the Meditron reinforcement-learning and reasoning team (GRPO RLHF, SFT reasoning distillation).</li>
+                  <li>Optimized training on SLURM clusters with vLLM, DeepSpeed, and Axolotl; built robust eval (MCQA, model judges).</li>
+                  <li>Led synthetic-data generation with clinicians to create safe, representative clinical notes.</li>
+                  <li>Mentored a student team and coordinated weekly cross-site meetings (EPFL ↔ Yale).</li>
+                  <li>Contributed to end-to-end Meditron-3 training and evaluation; invited to Yale based on that impact.</li>
+                </ul>
             </div>
           </div>
           <!-- Graduate researcher -->
@@ -190,25 +177,11 @@
                 <h3>Graduate Researcher - LiGHT Lab (Meditron)</h3>
               </div>
               <span class="date">Sep 2023 - Sep 2024</span>
-              <ul>
-                <li>
-                  Co-developed <em>Meditree</em>, a tree-of-thought inference
-                  method inspired by MedGemini, improving test-time scaling
-                  and differential diagnosis capabilities.
-                </li>
-                <li>
-                  Achieved a +5 point gain on medical benchmarks, bringing
-                  our models to GPT-4 level performance.
-                </li>
-                <li>
-                  Built pipelines to generate structured medical guidelines for
-                  differential diagnosis.
-                </li>
-                <li>
-                  Contributed to training a state-of-the-art medical finetune
-                  of Llama-3 in under 24 hours.
-                </li>
-              </ul>
+                <ul>
+                  <li>Co-developed <em>Meditree</em>, a multi-agent “tree-of-thought” inference method for differential diagnosis.</li>
+                  <li>Built pipelines for structured medical-guideline ingestion and retrieval-augmented reasoning.</li>
+                  <li>Contributed to one of the earliest medical finetunes of Llama-3 with a rapid training turnaround.</li>
+                </ul>
             </div>
           </div>
 
@@ -250,10 +223,9 @@
               <h3>Enhancing Meditron capabilities with synthetic and reasoning datasets</h3>
               <p class="venue">Master thesis</p>
               <p>
-                Detailing finding on finetuning open-source LLMs on medical reasoning datasets, 
-                achieving 13-30% reasoning benchmark and 5-9% medical benchmark improvements. 
-                Compared distillation with and without reasoning traces and found that results 
-                are better when finetuning without reasoning traces.
+                Findings on finetuning open-source LLMs with synthetic and reasoning datasets, reporting 13–30% improvements
+                on reasoning benchmarks and 5–9% on medical benchmarks. Compares distillation with and without reasoning traces,
+                with better results observed without traces in this setting.
               </p>
               <a href="2025a_MScReport_TheimerLienhardXavier.pdf" target="_blank" class="pub-link">Read thesis →</a>
             </div>
@@ -266,10 +238,9 @@
             <img src="assets/MeditreeFig.png" alt="Llama-3-Meditron cover" class="pub-img" />
             <div class="pub-text">
               <h3>Llama-3 Meditron: An Open-Weight Suite of Medical LLMs</h3>
-              <p class="venue">AAAI Workshop 2024</p>
+              <p class="venue">AAAI Gen-AI for Health Workshop 2025</p>
               <p>
-                Demonstrates our tree-of-thought inference method <em>Meditree</em>,
-                enabling medical LLMs to reach GPT-4-level performance.
+                Presents <em>Meditree</em>, a clinical reasoning inference method, and results from the open-weight Meditron suite.
               </p>
               <a href="https://openreview.net/pdf?id=ZcD35zKujO" target="_blank" class="pub-link">Read paper →</a>
             </div>
@@ -325,8 +296,8 @@
               <h3>Invited as Short-Term Scholar &amp; Postgraduate Associate – Yale School of Medicine</h3>
               <p class="date">October 2024</p>
               <p>
-                Invited to join the <strong>Biomedical Informatics &amp; Data Science (BIDS)</strong> department
-                at Yale University as a short-term scholar and postgraduate associate.
+                Joined the <strong>Biomedical Informatics &amp; Data Science (BIDS)</strong> department as a Short-Term Scholar and
+                Postgraduate Associate to continue core Meditron work across training, evaluation, and publication.
               </p>
             </div>
           </div>
