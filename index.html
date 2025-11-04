@@ -3,40 +3,28 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Machine Learning Research Engineer at LiGHT (EPFL/Yale). Meditron core contributor: RLHF, reasoning, and open medical LLMs." />
     <meta property="og:title" content="Xavier Theimer-Lienhard — Meditron, RLHF, open medical LLMs" />
-    <meta property="og:description" content="Research associate at LiGHT (EPFL/Yale). Core contributor to Meditron and open medical LLMs." />
+    <meta property="og:description" content="Machine Learning Research Engineer at LiGHT (EPFL/Yale). Core contributor to Meditron and open medical LLMs." />
     <meta property="og:image" content="https://yourdomain.com/assets/photo.jpg" />
     <meta property="og:type" content="website" />
     <meta name="twitter:card" content="summary_large_image" />
+    <link rel="canonical" href="https://yourdomain.com/" />
     <title>Xavier Theimer-Lienhard - Portfolio</title>
-    <!--
-      This site is intentionally light on external dependencies.  The only
-      remotely hosted asset is the Google Font import below.  Everything else
-      (images, styles and scripts) lives within the repository so that the
-      website will continue to work when published on GitHub Pages.
-    -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="style.css" />
-    <!-- Font Awesome for icons -->
-    <script
-      src="https://kit.fontawesome.com/5c1e79a96e.js"
-      crossorigin="anonymous"
-      defer
-    ></script>
+    <script src="https://kit.fontawesome.com/5c1e79a96e.js" crossorigin="anonymous" defer></script>
 
-    <!-- Microsoft Clarity -->
     <script type="text/javascript">
-    (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "tft1s1vq5o");
+      (function(c,l,a,r,i,t,y){
+          c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+          t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+          y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+      })(window, document, "clarity", "script", "tft1s1vq5o");
     </script>
+
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -46,8 +34,8 @@
         "@type": "Organization",
         "name": "LiGHT Lab (EPFL/Yale)"
       }],
-      "jobTitle": "Research Associate",
-      "url": "https://your-domain/",
+      "jobTitle": "Machine Learning Research Engineer",
+      "url": "https://yourdomain.com/",
       "sameAs": [
         "https://github.com/Xkrilandar",
         "https://huggingface.co/Xkrilandar",
@@ -58,16 +46,17 @@
     </script>
   </head>
   <body>
-    <!-- Navigation bar -->
     <header>
       <nav class="navbar">
         <div class="logo">Xavier T. L.</div>
         <ul class="nav-links" id="navLinks">
           <li><a href="#home">Home</a></li>
           <li><a href="#about">About</a></li>
+          <li><a href="#projects">Projects</a></li>
           <li><a href="#experience">Experience</a></li>
           <li><a href="#publications">Publications</a></li>
           <li><a href="#education">Education</a></li>
+          <li><a href="#news">News</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
         <div class="burger" id="burger">
@@ -76,133 +65,146 @@
       </nav>
     </header>
 
-    <!-- Hero section -->
     <section id="home" class="hero">
       <div class="overlay"></div>
       <div class="hero-content">
         <h1>Xavier Theimer-Lienhard</h1>
         <p>
-          Research associate, LiGHT<br />
-          Meditron core team: RL, reasoning, open medical LLMs
+          Machine Learning Research Engineer, LiGHT<br />
+          Meditron core team: RLHF, reasoning, open medical LLMs
         </p>
         <a href="#contact" class="btn">Get in touch</a>
       </div>
     </section>
 
-    <!-- About section -->
     <section id="about" class="section about">
       <div class="container">
         <h2>About Me</h2>
         <div class="about-grid">
           <div class="about-text">
             <p>
-              I'm a research associate with the LiGHT Lab (Meditron) at EPFL, embedded in the
-              Meditron program end-to-end across training, evaluation, and deployment. I started in 2023 in
-              the sprints that produced early Meditron finetunes. As I took on more of the
-              stack, I was asked to lead sub-projects in Meditron-Reasoning
-              (RLHF + reasoning) and Meditron-Synthetic (safe clinical data generation).
+              I am a Machine Learning Research Engineer with the LiGHT Lab (Meditron) at EPFL. I work end-to-end across training, evaluation, and deployment for open medical LLMs. I began in 2023 during the early Meditron finetuning sprints, later leading sub-projects in Meditron-Reasoning (RLHF + reasoning) and Meditron-Synthetic (safe clinical data generation).
             </p>
             <p>
-              My work focuses on making medical LLMs efficient, interpretable, and auditable:
-              I co-designed evaluation pipelines, led RL and reasoning post-training on HPC, and built Meditree, a
-              multi-agent inference method that mirrors clinical reasoning. Recently, I co-led Apertus-Meditron-FO,
-              a fully open adaptation of the Swiss Apertus models for medicine, including an open medical corpus and
-              fine-tuning of 8B/70B variants.
+              My focus is on efficiency, interpretability, and auditability: I co-designed evaluation pipelines, led RL and reasoning post-training on HPC, and built Meditree, a multi-agent inference method mirroring clinical reasoning. Recently, I co-led Apertus-Meditron-FO, a fully open adaptation of the Swiss Apertus models for medicine, including an open medical corpus and finetuning of 8B/70B variants.
             </p>
             <p>
-              I hold a Master's degree in Data Science
-              from EPFL (GPA 5.4/6) and a Bachelor's degree in Communication Systems. 
-              When I'm not iterating on training runs, I like to indulge in a little bit of running, climbing, 
-              random wikipedia articles reading sessions, café hopping (just this year i 
-              went from tea afficionado to chai lover to black coffee extremist). 
-              I have also been dubbed king of brunch by my friends. 
+              I hold a Master’s degree in Data Science from EPFL (GPA 5.4/6) and a Bachelor’s degree in Communication Systems. Outside of work: running, climbing, Wikipedia rabbit holes, and a probably unhealthy enthusiasm for coffee and brunch.
             </p>
           </div>
           <div class="about-image">
-            <!-- Portait -->
             <img src="assets/photo.jpg" alt="Portrait of Xavier Theimer-Lienhard" />
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Experience section -->
+    <section id="projects" class="section projects">
+      <div class="container">
+        <h2>Current Projects</h2>
+        <div class="projects-grid">
+          <div class="project-card">
+            <h3>Auto‑Moove</h3>
+            <p>
+              Direct medical feedback optimization using Moove evaluations. Building reward models and GRPO pipelines that turn clinician Likert ratings and model comparisons into stable learning signals. Deliverables include reward-model reports, reproducible training scripts, and benchmarked improvements over Meditron baselines.
+            </p>
+            <ul>
+              <li>Reward modeling with preference and scalar signals</li>
+              <li>GRPO training with evaluation gating</li>
+              <li>Reproducible Axolotl/DeepSpeed training recipes</li>
+            </ul>
+          </div>
+          <div class="project-card">
+            <h3>LiGHT‑SeqDx‑Bench</h3>
+            <p>
+              A sequential diagnosis benchmark and harness focused on clinically meaningful multi-step reasoning. Includes baselines, metrics beyond accuracy, and a public leaderboard submission.
+            </p>
+            <ul>
+              <li>Eval harness with error taxonomy</li>
+              <li>Baseline suite and leaderboard-ready outputs</li>
+              <li>Analysis of diagnostic failure modes</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <section id="experience" class="section experience">
       <div class="container">
         <h2>Experience</h2>
         <div class="timeline">
-
-          <!-- Research associate -->
-           <div class="timeline-item">
-            <div class="timeline-content">
-              <div class="exp-header">
-
-                <img src="assets/epfl_logo.svg" alt="EPFL logo" class="exp-logo" />
-                <h3>Research Associate - LiGHT Lab (Meditron)</h3>
-              </div>
-              <span class="date">April 2025 - Present</span>
-                <ul>
-                  <li>Co-led Apertus-Meditron-FO, a fully open medical adaptation of Apertus 8B/70B.</li>
-                  <li>Curated and standardized the Mediset instruction-tuning corpus with rationale and PMC evidence.</li>
-                  <li>Built reproducible multi-node training workflows (Axolotl + DeepSpeed ZeRO-3) on HPC clusters.</li>
-                  <li>Delivered consistent gains on medical benchmarks via domain-specific adaptation and careful evaluation.</li>
-                  <li>Championed end-to-end openness: released weights, datasets, and training methods for auditability.</li>
-                </ul>
-            </div>
-          </div>
-
-          <!-- Short Term Scholar -->
           <div class="timeline-item">
             <div class="timeline-content">
               <div class="exp-header">
+                <img src="assets/epfl_logo.svg" alt="EPFL logo" class="exp-logo" />
+                <h3>Machine Learning Research Engineer — LiGHT Lab (Meditron)</h3>
+              </div>
+              <span class="date">Nov 2025 – Present</span>
+              <ul>
+                <li>Lead two tracks: Auto‑Moove (direct feedback optimization) and LiGHT‑SeqDx‑Bench (sequential diagnosis benchmark).</li>
+                <li>Design reward models from Moove evaluations and integrate GRPO training loops with evaluation gating.</li>
+                <li>Harden multi-node training workflows and public, reproducible evaluation suites.</li>
+              </ul>
+            </div>
+          </div>
 
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <div class="exp-header">
+                <img src="assets/epfl_logo.svg" alt="EPFL logo" class="exp-logo" />
+                <h3>Research Associate — LiGHT Lab (Meditron)</h3>
+              </div>
+              <span class="date">Apr 2025 – Nov 2025</span>
+              <ul>
+                <li>Co-led Apertus‑Meditron‑FO, an open medical adaptation of Apertus 8B/70B.</li>
+                <li>Curated the Mediset instruction-tuning corpus with rationales and citations.</li>
+                <li>Built reproducible multi-node training (Axolotl + DeepSpeed ZeRO‑3) on HPC clusters.</li>
+                <li>Delivered consistent gains on medical benchmarks with auditable methods.</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-content">
+              <div class="exp-header">
                 <img src="assets/yale.png" alt="Yale logo" class="exp-logo" />
-                <h3>Short Term Scholar at Yale University - LiGHT Lab (Meditron)</h3>
+                <h3>Short‑Term Scholar — Yale University (LiGHT Lab)</h3>
               </div>
-              <span class="date">Sep 2024 - April 2025</span>
-                <ul>
-                  <li>Led the Meditron reinforcement-learning and reasoning team (GRPO RLHF, SFT reasoning distillation).</li>
-                  <li>Optimized training on SLURM clusters with vLLM, DeepSpeed, and Axolotl; built robust eval (MCQA, model judges).</li>
-                  <li>Led synthetic-data generation with clinicians to create safe, representative clinical notes.</li>
-                  <li>Mentored a student team and coordinated weekly cross-site meetings (EPFL ↔ Yale).</li>
-                  <li>Contributed to end-to-end Meditron-3 training and evaluation; invited to Yale based on that impact.</li>
-                </ul>
+              <span class="date">Sep 2024 – Apr 2025</span>
+              <ul>
+                <li>Led Meditron RL and reasoning work (GRPO RLHF, SFT reasoning distillation).</li>
+                <li>Optimized training on SLURM clusters; built robust evaluation with MCQA and model judges.</li>
+                <li>Led clinician-guided synthetic-data generation of safe, representative clinical notes.</li>
+                <li>Mentored students and coordinated weekly EPFL ↔ Yale research syncs.</li>
+              </ul>
             </div>
           </div>
-          <!-- Graduate researcher -->
+
           <div class="timeline-item">
             <div class="timeline-content">
               <div class="exp-header">
                 <img src="assets/epfl_logo.svg" alt="EPFL logo" class="exp-logo" />
-                <h3>Graduate Researcher - LiGHT Lab (Meditron)</h3>
+                <h3>Graduate Researcher — LiGHT Lab (Meditron)</h3>
               </div>
-              <span class="date">Sep 2023 - Sep 2024</span>
-                <ul>
-                  <li>Developed Meditree, a multi-agent “tree-of-thought” inference method for differential diagnosis.</li>
-                  <li>Built pipelines for structured medical-guideline ingestion and retrieval-augmented reasoning.</li>
-                  <li>Contributed to one of the earliest medical finetunes of Llama-3 with a rapid training turnaround.</li>
-                </ul>
+              <span class="date">Sep 2023 – Sep 2024</span>
+              <ul>
+                <li>Developed Meditree, a multi‑agent tree‑of‑thought inference method for differential diagnosis.</li>
+                <li>Built pipelines for guideline ingestion and retrieval‑augmented reasoning.</li>
+                <li>Contributed to early medical finetunes of Llama‑3 with rapid iteration.</li>
+              </ul>
             </div>
           </div>
 
-          <!-- ML & Software Engineer -->
           <div class="timeline-item">
             <div class="timeline-content">
               <div class="exp-header">
                 <img src="assets/irbis-logo.png" alt="Irbis logo" class="exp-logo" />
-                <h3>ML &amp; Software Engineer - Irbis Consulting SA</h3>
+                <h3>ML &amp; Software Engineer — Irbis Consulting SA</h3>
               </div>
-              <span class="date">Sep 2023 - Sep 2024 (part-time)</span>
+              <span class="date">Sep 2023 – Sep 2024 (part‑time)</span>
               <ul>
-                <li>
-                  Developed an Electron application to automate bidding document
-                  creation, incorporating user feedback into iterative
-                  releases.
-                </li>
-                <li>
-                  Built a deep-learning captcha solver in PyTorch and
-                  implemented a web scraper with search retrieval capabilities.
-                </li>
+                <li>Built an Electron app automating bidding document creation with iterative user feedback.</li>
+                <li>Developed a deep‑learning captcha solver in PyTorch and a retrieval‑enabled web scraper.</li>
               </ul>
             </div>
           </div>
@@ -210,12 +212,10 @@
       </div>
     </section>
 
-    <!-- Publications section -->
     <section id="publications" class="section publications">
       <div class="container">
         <h2>Selected Publications</h2>
 
-        <!-- Master thesis -->
         <a href="2025a_MScReport_TheimerLienhardXavier.pdf" target="_blank" class="news-card-link">
           <div class="pub-card">
             <img src="assets/reasoning.png" alt="Thesis cover" class="pub-img" />
@@ -223,54 +223,60 @@
               <h3>Enhancing Meditron capabilities with synthetic and reasoning datasets</h3>
               <p class="venue">Master thesis</p>
               <p>
-                Findings on finetuning open-source LLMs with synthetic and reasoning datasets, reporting 13-30% improvements
-                on reasoning benchmarks and 5-9% on medical benchmarks. Compares distillation with and without reasoning traces,
-                with better results observed without traces in this setting.
+                Findings on finetuning open-source LLMs with synthetic and reasoning datasets, reporting 13–30% improvements on reasoning benchmarks and 5–9% on medical benchmarks. Compares distillation with and without reasoning traces, with better results observed without traces in this setting.
               </p>
               <a href="2025a_MScReport_TheimerLienhardXavier.pdf" target="_blank" class="pub-link">Read thesis →</a>
             </div>
           </div>
         </a>
 
-        <!-- Llama-3-Meditron -->
         <a href="https://openreview.net/pdf?id=ZcD35zKujO" target="_blank" class="news-card-link">
           <div class="pub-card">
-            <img src="assets/MeditreeFig.png" alt="Llama-3-Meditron cover" class="pub-img" />
+            <img src="assets/MeditreeFig.png" alt="Meditree figure" class="pub-img" />
             <div class="pub-text">
-              <h3>Llama-3 Meditron: An Open-Weight Suite of Medical LLMs</h3>
-              <p class="venue">AAAI Gen-AI for Health Workshop 2025</p>
+              <h3>Llama‑3 Meditron: An Open‑Weight Suite of Medical LLMs</h3>
+              <p class="venue">AAAI Gen‑AI for Health Workshop 2025</p>
               <p>
-                Presents <em>Meditree</em>, a clinical reasoning inference method, and results from the open-weight Meditron suite.
+                Presents Meditree, a clinical reasoning inference method, and results from the open‑weight Meditron suite.
               </p>
               <a href="https://openreview.net/pdf?id=ZcD35zKujO" target="_blank" class="pub-link">Read paper →</a>
             </div>
           </div>
         </a>
 
-        <!-- GPoeT -->
         <a href="https://aclanthology.org/2023.latechclfl-1.2/" target="_blank" class="news-card-link">
-        <div class="pub-card">
-          <img src="assets/gpoetFig.png" alt="GPoeT paper illustration" class="pub-img" />
-          <div class="pub-text">
-            <h3>GPoeT: A Language Model for Rhyme Generation on Synthetic Data</h3>
-            <p class="venue">ACL SIGHUM 2023</p>
-            <p>
-              Fine-tuned GPT-2 on a corpus of synthetic poems to generate
-              rhyming text with higher consistency than baseline models.
-            </p>
-            <a href="https://aclanthology.org/2023.latechclfl-1.2/" target="_blank" class="pub-link">Read paper →</a>
+          <div class="pub-card">
+            <img src="assets/gpoetFig.png" alt="GPoeT paper illustration" class="pub-img" />
+            <div class="pub-text">
+              <h3>GPoeT: A Language Model for Rhyme Generation on Synthetic Data</h3>
+              <p class="venue">ACL SIGHUM 2023</p>
+              <p>
+                Fine‑tuned GPT‑2 on a corpus of synthetic poems to generate rhyming text with higher consistency than baseline models.
+              </p>
+              <a href="https://aclanthology.org/2023.latechclfl-1.2/" target="_blank" class="pub-link">Read paper →</a>
+            </div>
           </div>
-        </div>
         </a>
       </div>
     </section>
 
-    <!-- News -->
     <section id="news" class="section news">
       <div class="container">
         <h2>News</h2>
 
-        <!-- Meta Summit entry -->
+        <a href="#" class="news-card-link">
+          <div class="news-card">
+            <img src="assets/light_lab.jpg" alt="LiGHT Lab" class="news-img" />
+            <div class="news-text">
+              <h3>Joined LiGHT as Machine Learning Research Engineer</h3>
+              <p class="date">November 2025</p>
+              <p>
+                Started a 6‑month role leading Auto‑Moove and LiGHT‑SeqDx‑Bench, focusing on direct medical feedback optimization and sequential diagnosis evaluation.
+              </p>
+            </div>
+          </div>
+        </a>
+
         <a href="https://www.linkedin.com/posts/johnbockstanz_open-source-ai-models-ensure-that-more-people-activity-7274496151444221952-S4r6?utm_source=share&utm_medium=member_desktop&rcm=ACoAADrv95sBI6z8bGJLPkQOLGGlnwkcMrOiJE4" target="_blank" class="news-card-link">
           <div class="news-card">
             <img src="assets/meta_open_summit.jpg" alt="Meta summit photo" class="news-img" />
@@ -278,97 +284,77 @@
               <h3>Invited to the Meta Summit for Open Science</h3>
               <p class="date">December 2024</p>
               <p>
-                Invited to the <strong>Meta Open Science Innovation Summit</strong> to share
-                ongoing work with <em>Llama</em> models in <em>Meditron</em>, an open-source
-                suite of medical large language models developed between Yale and EPFL,
-                and to discuss <em>MOOVE</em>, Meditron's open validation and evaluation framework 
-                for reliable global health AI.
+                Invited to the Meta Open Science Innovation Summit to discuss work with Llama in Meditron and the MOOVE evaluation framework for reliable global health AI.
               </p>
             </div>
           </div>
         </a>
 
-        <!-- Yale Scholar entry -->
         <a href="https://medicine.yale.edu/biomedical-informatics-data-science/" target="_blank" class="news-card-link">
           <div class="news-card">
             <img src="assets/yale_winter.jpg" alt="Yale short-term scholar photo" class="news-img" />
             <div class="news-text">
-              <h3>Invited as Short-Term Scholar &amp; Postgraduate Associate – Yale School of Medicine</h3>
+              <h3>Short‑Term Scholar &amp; Postgraduate Associate — Yale School of Medicine</h3>
               <p class="date">October 2024</p>
               <p>
-                Joined the <strong>Biomedical Informatics &amp; Data Science (BIDS)</strong> department as a Short-Term Scholar and
-                Postgraduate Associate to continue core Meditron work across training, evaluation, and publication.
+                Joined the Biomedical Informatics &amp; Data Science (BIDS) department to continue Meditron research across training, evaluation, and publication.
               </p>
             </div>
           </div>
         </a>
-
-
-
       </div>
     </section>
 
-    <!-- Education section -->
-    
     <section id="education" class="section education">
       <div class="container">
         <h2>Education</h2>
         <div class="edu-grid">
           <a href="https://www.epfl.ch/education/master/programs/data-science/" target="_blank" class="news-card-link">
-          <div class="edu-item">
-            <h3>MSc Data Science</h3>
-            <span class="edu-meta">
-              <div class="exp-header"><img src="assets/epfl_logo.svg" alt="EPFL logo" class="exp-logo" /></div>
-              Sep 2022 - Apr 2025</span>
-            <p>Graduated with a GPA of 5.4/6.</p>
-          </div>
+            <div class="edu-item">
+              <h3>MSc Data Science</h3>
+              <span class="edu-meta">
+                <div class="exp-header"><img src="assets/epfl_logo.svg" alt="EPFL logo" class="exp-logo" /></div>
+                Sep 2022 – Apr 2025</span>
+              <p>Graduated with a GPA of 5.4/6.</p>
+            </div>
           </a>
           <a href="https://www.epfl.ch/education/bachelor/programs/communication-systems/" target="_blank" class="news-card-link">
-          <div class="edu-item">
-            <h3>BSc Communication Systems</h3>
-            <span class="edu-meta"><div class="exp-header"><img src="assets/epfl_logo.svg" alt="EPFL logo" class="exp-logo" /></div> Sep 2018 - Sep 2022</span>
-          </div>
+            <div class="edu-item">
+              <h3>BSc Communication Systems</h3>
+              <span class="edu-meta"><div class="exp-header"><img src="assets/epfl_logo.svg" alt="EPFL logo" class="exp-logo" /></div> Sep 2018 – Sep 2022</span>
+            </div>
           </a>
         </div>
       </div>
     </section>
 
-    <!-- Contact section -->
     <section id="contact" class="section contact">
       <div class="container">
-          <h2>Contact</h2>
-          <p>
-            I'm always open to discussing new projects or collaborations.
-            Feel free to reach out via email or connect with me online.
-          </p>
+        <h2>Contact</h2>
+        <p>
+          Open to collaborations and conversations.
+        </p>
         <ul class="contact-list">
           <li>
             <i class="fas fa-envelope"></i>
-            <a href="mailto:xavier.theimerlienhard@gmail.com">
-              xavier.theimerlienhard@gmail.com
-            </a>
+            <a href="mailto:xavier.theimerlienhard@gmail.com">xavier.theimerlienhard@gmail.com</a>
           </li>
-
           <li>
             <i class="fab fa-github"></i>
             <a href="https://github.com/Xkrilandar" target="_blank">GitHub</a>
           </li>
-
           <li>
             <i class="fab fa-huggingface"></i>
             <a href="https://huggingface.co/Xkrilandar" target="_blank">HuggingFace</a>
           </li>
-
           <li>
             <i class="fab fa-linkedin"></i>
             <a href="https://www.linkedin.com/in/xavier-theimer-lienhard" target="_blank">LinkedIn</a>
           </li>
-
           <li>
-            <i class="ai ai-google-scholar"></i>
-            <a href="http://scholar.google.com/citations?view_op=list_works&hl=en&user=vgWG6DsAAAAJ" target="_blank">Google Scholar</a>
+            <i class="fas fa-graduation-cap"></i>
+            <a href="https://scholar.google.com/citations?user=vgWG6DsAAAAJ" target="_blank">Google Scholar</a>
           </li>
-
           <li>
             <i class="fas fa-file-pdf"></i>
             <a href="CV-2025.pdf" target="_blank">Download my CV</a>
@@ -379,7 +365,7 @@
 
     <footer>
       <div class="container">
-        <p>&copy; 2025 Xavier Theimer-Lienhard. All rights reserved.</p>
+        <p>© 2025 Xavier Theimer‑Lienhard. All rights reserved.</p>
       </div>
     </footer>
 
