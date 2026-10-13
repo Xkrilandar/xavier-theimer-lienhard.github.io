@@ -100,6 +100,7 @@ hr {
     float: right; 
     width: 220px; /* Adjust based on preference */
     height: auto;
+    aspect-ratio: 4 / 5;
     border-radius: 4px; 
     margin-left: 2.5rem;
     margin-bottom: 1rem;
@@ -110,7 +111,6 @@ hr {
 .intro-text {
     margin-top: 0;
 }
-
 /* --- LIST STYLES (News & Experience) --- */
 ul {
     padding-left: 1rem;
@@ -173,6 +173,14 @@ ul {
     font-weight: 600;
     font-size: 1.15rem;
     color: #000; /* Titles are usually black */
+    text-decoration: underline;
+    text-decoration-color: #ccc;
+    text-underline-offset: 3px;
+}
+
+.pub-title:hover {
+    color: var(--link-color);
+    text-decoration-color: currentColor;
 }
 
 .authors {
@@ -202,7 +210,7 @@ ul {
         float: none;
         display: block;
         width: 100%;
-        max-width: 300px;
+        max-width: 240px;
         margin: 0 0 1.5rem 0;
     }
     
@@ -211,6 +219,7 @@ ul {
     }
     
     .list-date {
+        flex-basis: auto;
         margin-bottom: 0.2rem;
         font-weight: 600;
         color: #444;
@@ -225,49 +234,38 @@ ul {
     }
 }
 
-/* === EXPERIENCE (with logos) === */
-#experience .list-sidebar {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
+/* --- EXPERIENCE (News-style rows with a small logo) --- */
 #experience .experience-item {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-  padding: 1rem;
-  margin-bottom: 1rem;
-
-  background: rgba(255, 255, 255, 0.85);
-  border-radius: 8px;
-  border: 1px solid #c7d2fe; /* light indigo border */
-  transition: all 0.2s ease;
-}
-
-#experience .experience-item:hover {
-  background: rgba(255, 255, 255, 0.95);
-  border-color: #93c5fd;
-  transform: translateX(3px);
+    align-items: center;
 }
 
 #experience .experience-item img {
-  width: 55px;
-  height: 55px;
-  object-fit: contain;
-  border-radius: 6px;
-
-  background: white;
-  padding: 4px;
-  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.1);
-  border: 1px solid #c7d2fe;
-  flex-shrink: 0;
+    width: 28px;
+    height: 28px;
+    object-fit: contain;
+    margin-right: 0.75rem;
+    flex-shrink: 0;
 }
 
-#experience .experience-text .list-date {
-  font-weight: 600;
+@media (max-width: 650px) {
+    #experience .experience-item {
+        flex-direction: row;
+        flex-wrap: wrap;
+    }
+
+    #experience .experience-item .list-date {
+        flex: 0 0 100%;
+    }
 }
 
-#experience .experience-text .list-content {
-  color: inherit; /* keep your existing text color rules */
+.bibtex {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    line-height: 1.4;
+    background: #f6f6f6;
+    border: 1px solid #eee;
+    padding: 0.75rem;
+    margin: 0.5rem 0 0;
+    overflow-x: auto;
+    white-space: pre;
 }
