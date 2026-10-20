@@ -1,6 +1,6 @@
 /* --- RESET & GLOBAL VARIABLES --- */
 :root {
-    --bg-color: #ffffff;
+    --bg-color: #faf9f5; /* warm ivory, as on the Meditron site */
     --text-color: #222222;
     /* This blue is the standard "Academic Blue" link color */
     --link-color: #0044cc; 
